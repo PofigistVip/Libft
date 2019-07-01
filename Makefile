@@ -128,3 +128,5 @@ fclean: clean
 re: fclean all
 
 makeitclear: all clean
+
+.PHONY: all $(NAME) clean fclean re makeitclear
