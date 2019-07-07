@@ -70,29 +70,11 @@ SRCS=ft_memset.c \
 	 ft_lstadd.c \
 	 ft_lstiter.c \
 	 ft_lstmap.c \
-	 ft_setcolors.c \
-	 ft_setcolors_fd.c \
-	 ft_setforeground.c \
-	 ft_setforeground_fd.c \
-	 ft_setbackground.c \
-	 ft_setbackground_fd.c \
-	 ft_setdefault_cols.c \
-	 ft_pos_power.c \
-	 ft_realloc.c \
-	 ft_putstrn.c \
-	 ft_putstrn_fd.c \
-	 ft_uitoa_base.c \
-	 ft_llitoa.c \
-	 ft_putcharn_fd.c \
-	 ft_isint.c \
 \
-	 ft_llist_create.c \
-	 ft_llist_elem_new.c \
-	 ft_llist_add.c \
-	 ft_llist_get.c \
-	 ft_llist_remove.c \
-	 ft_llist_clear.c \
-	 ft_llist_destroy.c \
+	 ft_realloc.c \
+	 ft_isint.c \
+	 ft_setcolor_fd.c \
+	 ft_setcolor.c \
 \
 	 ft_lstr_new_empty.c \
 	 ft_lstr_new.c \
@@ -127,6 +109,4 @@ fclean: clean
 
 re: fclean all
 
-makeitclear: all clean
-
-.PHONY: all clean fclean re makeitclear
+.PHONY: all clean fclean re
