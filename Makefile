@@ -107,7 +107,7 @@ $(NAME): $(OBJS)
 	@printf "Compiling %19s => %19s\r" $< $@
 
 clean:
-	@rm -f *.o
+	@rm -f $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
