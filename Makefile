@@ -96,10 +96,15 @@ OBJS=$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	@gcc -I . -c $(SRCS)
+$(NAME): $(OBJS)
+	@printf "%-52c\rCreating a library... " ' '
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+	@printf "Done!\n"
+
+%.o: %.c
+	@gcc -I . -c $<
+	@printf "Compiling %19s => %19s\r" $< $@
 
 clean:
 	@rm -f *.o
