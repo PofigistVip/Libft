@@ -97,7 +97,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 typedef enum	e_ccolor
 {
 	cc_current = -2,
-	cc_default = -1,
+	cc_default = 9,
 	cc_black = 0,
 	cc_red = 1,
 	cc_green = 2,
