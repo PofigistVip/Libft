@@ -16,22 +16,23 @@
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	char				*end;
-	unsigned long long	*lls[2];
+	unsigned long long	*lls1;
+	unsigned long long	*lls2;
 	unsigned char		*cs[2];
 
-	end = (char*)s1 + n - 1;
-	lls[0] = (unsigned long long*)s1;
-	lls[1] = (unsigned long long*)s2;
-	while (lls[0] < end - sizeof(long long))
+	end = (char*)s1 + n;
+	lls1 = (unsigned long long*)s1;
+	lls2 = (unsigned long long*)s2;
+	while (lls1 + sizeof(long long) < end)
 	{
-		if (*(lls[0]) != *(lls[1]))
+		if (*lls1 != *lls2)
 			break;
-		++(lls[0]);
-		++(lls[1]);
+		++lls1;
+		++lls2;
 	}
-	cs[0] = (unsigned char*)lls[0];
-	cs[1] = (unsigned char*)lls[1];
-	while (cs[0] <= end)
+	cs[0] = (unsigned char*)lls1;
+	cs[1] = (unsigned char*)lls2;
+	while (cs[0] != end)
 	{
 		if (*(cs[0]) != *(cs[1]))
 			return (*(cs[0]) - *(cs[1]));
