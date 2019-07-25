@@ -10,4 +10,4 @@
 
 # Подробности
 
-Описание всех функций представлено на wiki-page
+Описание всех функций представлено на [wiki-page](https://github.com/PofigistVip/Libft/wiki)
