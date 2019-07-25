@@ -11,6 +11,9 @@
 # **************************************************************************** #
 
 NAME=libft.a
+SRCS_DIR=src
+OBJS_DIR=obj
+INCLUDE=include
 CFLAGS=-Wall -Wextra -Werror
 SRCS=ft_memset.c \
 	 ft_bzero.c \
@@ -96,18 +99,21 @@ OBJS=$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@printf "%-52c\rCreating a library... " ' '
-	@ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS_DIR) $(addprefix $(OBJS_DIR)/, $(OBJS))
+	@printf "%-60c\rCreating a library... " ' '
+	@ar rc $(NAME) $(addprefix $(OBJS_DIR)/, $(OBJS))
 	@ranlib $(NAME)
 	@printf "Done!\n"
 
-%.o: %.c
-	@gcc -I . -c $<
-	@printf "Compiling %19s => %19s\r" $< $@
+$(OBJS_DIR):
+	@mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@gcc -o $@ -I $(INCLUDE) -c $<
+	@printf "Compiling %23s => %-23s\r" $< $@
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
