@@ -1,4 +1,4 @@
-<img src="info/Libft_Logo.png">
+<img src="info/Libft_Logo.png" align="center">
 
 **Скриншот из 42 File Checker**
 
